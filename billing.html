@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FreshMart Billing Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="billing-page">
+    <div class="billing-shell">
+      <header class="billing-header">
+        <div>
+          <p class="eyebrow">FreshMart Control Desk</p>
+          <h1>Smart Billing Dashboard</h1>
+          <p class="header-subtitle">
+            Manage product quantities, customer details, discounts, and invoice
+            generation from one screen.
+          </p>
+        </div>
+        <div class="header-meta">
+          <div class="meta-card">
+            <span>Operator</span>
+            <strong id="operatorName">Cashier</strong>
+          </div>
+          <div class="meta-card">
+            <span>Bill No</span>
+            <strong id="billNumber">FM-0001</strong>
+          </div>
+          <div class="meta-card">
+            <span>Date</span>
+            <strong id="currentDate">--</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="dashboard-grid">
+        <section class="dashboard-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Customer and Purchase Details</h2>
+              <p>Fill the details below and generate the final invoice.</p>
+            </div>
+            <a href="/" class="ghost-link">Back to Login</a>
+          </div>
+
+          <form action="/generate-bill" method="post" id="billingForm" class="billing-form">
+            <input type="hidden" name="operator" id="operatorField" value="Cashier" />
+            <input type="hidden" name="billNo" id="billNoField" value="FM-0001" />
+
+            <div class="customer-grid">
+              <label>
+                <span>Customer Name</span>
+                <input
+                  type="text"
+                  name="customerName"
+                  placeholder="Enter customer name"
+                  required
+                />
+              </label>
+              <label>
+                <span>Phone Number</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Enter mobile number"
+                  required
+                />
+              </label>
+              <label>
+                <span>Payment Method</span>
+                <select name="paymentMethod">
+                  <option>Cash</option>
+                  <option>Card</option>
+                  <option>UPI</option>
+                </select>
+              </label>
+              <label>
+                <span>Discount (%)</span>
+                <input
+                  type="number"
+                  name="discount"
+                  id="discountInput"
+                  value="0"
+                  min="0"
+                  max="50"
+                />
+              </label>
+            </div>
+
+            <div class="product-toolbar">
+              <div>
+                <h3>Available Products</h3>
+                <p>Select quantities for the customer bill.</p>
+              </div>
+              <label class="search-box">
+                <span>Search product</span>
+                <input type="search" id="productSearch" placeholder="Search item" />
+              </label>
+            </div>
+
+            <div class="table-wrap">
+              <table class="product-table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-item-row data-name="milk">
+                    <td>Milk</td>
+                    <td>Dairy</td>
+                    <td data-price="30">Rs. 30</td>
+                    <td><input type="number" name="milk" min="0" value="0" data-item-input data-price="30" /></td>
+                  </tr>
+                  <tr data-item-row data-name="bread">
+                    <td>Bread</td>
+                    <td>Bakery</td>
+                    <td data-price="25">Rs. 25</td>
+                    <td><input type="number" name="bread" min="0" value="0" data-item-input data-price="25" /></td>
+                  </tr>
+                  <tr data-item-row data-name="butter">
+                    <td>Butter</td>
+                    <td>Dairy</td>
+                    <td data-price="45">Rs. 45</td>
+                    <td><input type="number" name="butter" min="0" value="0" data-item-input data-price="45" /></td>
+                  </tr>
+                  <tr data-item-row data-name="cheese">
+                    <td>Cheese</td>
+                    <td>Dairy</td>
+                    <td data-price="50">Rs. 50</td>
+                    <td><input type="number" name="cheese" min="0" value="0" data-item-input data-price="50" /></td>
+                  </tr>
+                  <tr data-item-row data-name="cake">
+                    <td>Cake</td>
+                    <td>Bakery</td>
+                    <td data-price="100">Rs. 100</td>
+                    <td><input type="number" name="cake" min="0" value="0" data-item-input data-price="100" /></td>
+                  </tr>
+                  <tr data-item-row data-name="tea">
+                    <td>Tea</td>
+                    <td>Beverage</td>
+                    <td data-price="20">Rs. 20</td>
+                    <td><input type="number" name="tea" min="0" value="0" data-item-input data-price="20" /></td>
+                  </tr>
+                  <tr data-item-row data-name="coffee">
+                    <td>Coffee</td>
+                    <td>Beverage</td>
+                    <td data-price="25">Rs. 25</td>
+                    <td><input type="number" name="coffee" min="0" value="0" data-item-input data-price="25" /></td>
+                  </tr>
+                  <tr data-item-row data-name="rice">
+                    <td>Rice</td>
+                    <td>Grocery</td>
+                    <td data-price="60">Rs. 60</td>
+                    <td><input type="number" name="rice" min="0" value="0" data-item-input data-price="60" /></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="action-row">
+              <button type="button" class="secondary-btn" id="demoFill">Fill Demo Data</button>
+              <button type="reset" class="secondary-btn" id="resetForm">Reset</button>
+              <button type="submit" class="primary-btn">Generate Invoice</button>
+            </div>
+          </form>
+        </section>
+
+        <aside class="summary-panel">
+          <div class="summary-card">
+            <h2>Live Bill Summary</h2>
+            <div class="summary-stats">
+              <div>
+                <span>Items Selected</span>
+                <strong id="itemCount">0</strong>
+              </div>
+              <div>
+                <span>Total Quantity</span>
+                <strong id="quantityCount">0</strong>
+              </div>
+            </div>
+
+            <div id="selectedItems" class="selected-items">
+              <p class="empty-state">No items selected yet.</p>
+            </div>
+
+            <div class="total-box">
+              <div><span>Subtotal</span><strong id="subtotalValue">Rs. 0.00</strong></div>
+              <div><span>Discount</span><strong id="discountValue">Rs. 0.00</strong></div>
+              <div><span>GST (5%)</span><strong id="gstValue">Rs. 0.00</strong></div>
+              <div class="grand-total"><span>Grand Total</span><strong id="grandTotalValue">Rs. 0.00</strong></div>
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

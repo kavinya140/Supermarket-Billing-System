@@ -1,26 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Supermarket Billing Login</title>
+    <title>FreshMart Billing System</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body>
-    <div class="container">
-      <div class="login-box">
-        <h1>🛒 Welcome to Supermarket Billing</h1>
-        <form action="enhanced_billing.html" method="get" class="login-form">
-          <input type="text" name="username" placeholder="Username" required />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-          />
-          <button type="submit">Login</button>
-        </form>
-      </div>
+  <body class="landing-page">
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <h1>FreshMart Smart Billing System</h1>
+          <p class="hero-text">
+            A modern supermarket billing application with customer details,
+            instant cart summary, GST calculation, discount handling, and
+            printable invoice generation.
+          </p>
+        </div>
+
+        <div class="login-panel">
+          <div class="panel-glow"></div>
+          <h2>Staff Login</h2>
+          <p class="panel-text">Use any staff name to continue to billing.</p>
+          <form action="/billing" method="get" class="login-form">
+            <label>
+              <span>Username</span>
+              <input
+                type="text"
+                name="username"
+                placeholder="e.g. cashier01"
+                required
+              />
+            </label>
+            <label>
+              <span>Password</span>
+              <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                required
+              />
+            </label>
+            <button type="submit">Enter Billing Dashboard</button>
+          </form>
+          <p class="demo-note">
+            Demo login for presentation: any username and password.
+          </p>
+        </div>
+      </header>
+
+      <section class="feature-grid">
+        <article class="feature-card">
+          <h3>Fast Product Billing</h3>
+          <p>Add item quantities and view the bill summary instantly.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Customer Management</h3>
+          <p>Capture customer name, phone number, and payment mode.</p>
+        </article>
+        <article class="feature-card">
+          <h3>Professional Invoice</h3>
+          <p>Generate a formatted invoice ready for print or screenshot.</p>
+        </article>
+      </section>
     </div>
   </body>
 </html>
