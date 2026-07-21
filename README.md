@@ -2,7 +2,7 @@
 
 FreshMart Smart Billing System is a Java-based supermarket billing mini project designed for college presentation and demo use. It combines a modern frontend with a lightweight Java HTTP server to simulate a professional billing workflow.
 
-# Live Link: https://kavinya140.github.io/Supermarket-Billing-System/
+Live Link: https://kavinya140.github.io/Supermarket-Billing-System/
 
 ## Features
 
