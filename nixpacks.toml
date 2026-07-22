@@ -1,0 +1,5 @@
+[phases.build]
+cmds = ["javac Main.java"]
+
+[start]
+cmd = "java Main"

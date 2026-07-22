@@ -20,11 +20,16 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+        int port = 8080;
+        String envPort = System.getenv("PORT");
+        if (envPort != null && !envPort.isBlank()) {
+            port = Integer.parseInt(envPort);
+        }
+        HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/generate-bill", new BillHandler());
         server.createContext("/", new StaticHandler());
         server.setExecutor(null);
-        System.out.println("FreshMart server started at http://localhost:8080");
+        System.out.println("FreshMart server started at http://localhost:" + port);
         server.start();
     }
 }
