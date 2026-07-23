@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: supermarket-billing-system
-    env: java
-    buildCommand: javac Main.java
-    startCommand: java Main
-    plan: free
