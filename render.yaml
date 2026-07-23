@@ -1,9 +1,6 @@
 services:
   - type: web
     name: supermarket-billing-system
-    runtime: java
-    buildCommand: javac Main.java
-    startCommand: java Main
-    envVars:
-      - key: JAVA_VERSION
-        value: 21
+    runtime: node
+    buildCommand: "apt-get install -y default-jdk && javac Main.java"
+    startCommand: "java Main"
