@@ -6,14 +6,14 @@ Live Link: https://kavinya140.github.io/Supermarket-Billing-System/
 
 ## Features
 
-- Staff login landing page with polished UI
-- Smart billing dashboard with customer details
-- Product quantity entry for multiple grocery items
-- Live bill summary with subtotal, discount, GST, and grand total
-- Product search for faster billing
-- Demo-fill option for quick presentation
-- Printable invoice generated from the Java backend
-- Responsive layout suitable for desktop and laptop demo screens
+- Staff login landing page with polished UI.
+- Smart billing dashboard with customer details.
+- Product quantity entry for multiple grocery items.
+- Live bill summary with subtotal, discount, GST, and grand total.
+- Product search for faster billing.
+- Demo-fill option for quick presentation.
+- Printable invoice generated from the Java backend.
+- Responsive layout suitable for desktop and laptop demo screens.
 
 ## Technologies Used
 
